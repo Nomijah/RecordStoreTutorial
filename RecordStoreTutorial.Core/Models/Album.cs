@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RecordStoreTutorial.Core.Models
+namespace RecordStore.Core.Models
 {
     public class Album : BaseEntity
     {
