@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RecordStoreTutorial.Core.Models
+namespace RecordStore.Core.Models
 {
     public class Genre : BaseEntity
     {

@@ -1,5 +1,5 @@
 
-namespace RecordStoreTutorial
+namespace RecordStore.WebAPI
 {
     public class Program
     {
