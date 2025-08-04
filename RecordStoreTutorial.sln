@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.35806.103 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStoreTutorial", "RecordStoreTutorial\RecordStoreTutorial.csproj", "{305C3301-04C6-4BDE-99FC-AB533670236B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.WebAPI", "RecordStoreTutorial\RecordStore.WebAPI.csproj", "{305C3301-04C6-4BDE-99FC-AB533670236B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.Core", "RecordStoreTutorial.Core\RecordStore.Core.csproj", "{BD85F5D9-19F2-4986-99B9-E1DCCFDCB808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.Infrastructure", "RecordStore.Infrastructure\RecordStore.Infrastructure.csproj", "{324FD45C-7B99-4FEB-A767-F6028EB24AEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.Services", "RecordStore.Services\RecordStore.Services.csproj", "{CB73A51B-EEF2-4D89-B14F-02C417AC4A73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{305C3301-04C6-4BDE-99FC-AB533670236B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{305C3301-04C6-4BDE-99FC-AB533670236B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{305C3301-04C6-4BDE-99FC-AB533670236B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD85F5D9-19F2-4986-99B9-E1DCCFDCB808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD85F5D9-19F2-4986-99B9-E1DCCFDCB808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD85F5D9-19F2-4986-99B9-E1DCCFDCB808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD85F5D9-19F2-4986-99B9-E1DCCFDCB808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324FD45C-7B99-4FEB-A767-F6028EB24AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324FD45C-7B99-4FEB-A767-F6028EB24AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324FD45C-7B99-4FEB-A767-F6028EB24AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324FD45C-7B99-4FEB-A767-F6028EB24AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB73A51B-EEF2-4D89-B14F-02C417AC4A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB73A51B-EEF2-4D89-B14F-02C417AC4A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB73A51B-EEF2-4D89-B14F-02C417AC4A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB73A51B-EEF2-4D89-B14F-02C417AC4A73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
