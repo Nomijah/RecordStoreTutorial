@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -16,6 +16,12 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RecordStore.Infrastructure\RecordStore.Infrastructure.csproj" />
+    <ProjectReference Include="..\RecordStore.Services\RecordStore.Services.csproj" />
+    <ProjectReference Include="..\RecordStoreTutorial.Core\RecordStore.Core.csproj" />
   </ItemGroup>
 
 </Project>
