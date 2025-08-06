@@ -1,9 +1,19 @@
+using AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using RecordStore.Core.Interfaces;
 using RecordStore.Infrastructure.Data;
 using RecordStore.Infrastructure.Repositories;
+using RecordStore.Services.DTOs;
 using RecordStore.Services.Interfaces;
+using RecordStore.Services.Mapping;
 using RecordStore.Services.Services;
+using RecordStore.Services.Validators;
+using RecordStore.WebAPI.MiddleWare;
+using System.Reflection;
 
 namespace RecordStore.WebAPI
 {
@@ -18,7 +28,20 @@ namespace RecordStore.WebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new() { Title = "Record Store API", Version = "v1" });
+                c.SwaggerDoc("v1", new()
+                {
+                    Title = "Record Store API",
+                    Version = "v1",
+                    Description = "A comprehensive API for managing a record store with albums, artists, and genres"
+                });
+
+                // Include XML comments for better Swagger documentation
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                if (File.Exists(xmlPath))
+                {
+                    c.IncludeXmlComments(xmlPath);
+                }
             });
 
             // Database
@@ -30,6 +53,15 @@ namespace RecordStore.WebAPI
 
             // Service pattern
             builder.Services.AddScoped<IAlbumService, AlbumService>();
+            builder.Services.AddScoped<IArtistService, ArtistService>();
+
+            // FluentValidation
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+            builder.Services.AddValidatorsFromAssemblyContaining<CreateAlbumDtoValidator>();
+            
+            // AutoMapper
+            builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile));
 
             // CORS
             builder.Services.AddCors(options =>
@@ -45,6 +77,8 @@ namespace RecordStore.WebAPI
             var app = builder.Build();
 
             //Configure the HTTP request pipeline.
+            app.UseMiddleware<GlobalExceptionMiddleware>();
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
