@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using RecordStore.Core.Models;
 
 namespace RecordStore.Infrastructure.Data
 {
-    public class RecordStoreDbContext : DbContext
+    public class RecordStoreDbContext : IdentityDbContext<IdentityUser>
     {
         public RecordStoreDbContext(DbContextOptions<RecordStoreDbContext> options) : base(options)
         {

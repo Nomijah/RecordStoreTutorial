@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecordStore.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using RecordStore.Infrastructure.Data;
 namespace RecordStore.Infrastructure.Migrations
 {
     [DbContext(typeof(RecordStoreDbContext))]
-    partial class RecordStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250812115455_identity")]
+    partial class identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

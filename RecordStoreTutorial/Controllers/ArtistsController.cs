@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RecordStore.Services.DTOs;
 using RecordStore.Services.Interfaces;
 
 namespace RecordStore.WebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ArtistsController : ControllerBase
@@ -61,6 +63,7 @@ namespace RecordStore.WebAPI.Controllers
         /// </summary>
         /// <param name="createArtistDto">Artist creation data</param>
         /// <returns>Created artist</returns>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(ArtistDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

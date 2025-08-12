@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RecordStore.Services.DTOs;
 using RecordStore.Services.Interfaces;
 
 namespace RecordStore.WebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AlbumsController : ControllerBase
@@ -109,6 +111,7 @@ namespace RecordStore.WebAPI.Controllers
         /// </summary>
         /// <param name="createAlbumDto">Album creation data</param>
         /// <returns>Created album</returns>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(AlbumDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -127,6 +130,7 @@ namespace RecordStore.WebAPI.Controllers
         /// <param name="id">Album ID</param>
         /// <param name="updateAlbumDto">Album update data</param>
         /// <returns>No content if successful</returns>
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -148,6 +152,7 @@ namespace RecordStore.WebAPI.Controllers
         /// </summary>
         /// <param name="id">Album ID</param>
         /// <returns>No content if successful</returns>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
