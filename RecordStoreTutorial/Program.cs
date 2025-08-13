@@ -79,7 +79,6 @@ namespace RecordStore.WebAPI
             builder.Services.AddScoped<IArtistService, ArtistService>();
 
             // FluentValidation
-            builder.Services.AddFluentValidationAutoValidation();
             builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
             builder.Services.AddValidatorsFromAssemblyContaining<CreateAlbumDtoValidator>();
             
